@@ -60,7 +60,7 @@ def fix_survey_data(doc):
         para.text = re.sub(r'\b86\b', '104', para.text)
 
 def main():
-    input_file = "Document 4.docx"
+    input_file = "Document.4.docx"
     output_file = "ГОТОВЫЙ_ПРОЕКТ.docx"
     
     doc = Document(input_file)
