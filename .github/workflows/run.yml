@@ -1,0 +1,28 @@
+name: Обработка курсовой
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Клонируем репозиторий
+      uses: actions/checkout@v4
+
+    - name: Устанавливаем Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Устанавливаем библиотеку
+      run: pip install python-docx
+
+    - name: Запускаем скрипт
+      run: python update_doc.py
+
+    - name: Загружаем результат
+      uses: actions/upload-artifact@v4
+      with:
+        name: gotoviy-proekt
+        path: ГОТОВЫЙ_ПРОЕКТ.docx
